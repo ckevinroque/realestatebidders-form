@@ -1,0 +1,225 @@
+ <div class="main-container">
+              <div class="container---l-2 align-center">
+                <div class="w-layout-grid rows-2 gap-3">
+                  <div class="text-center-2">
+                    <h1 class="display-heading-2">Request Instant Bid</h1>
+                    <div class="large-text-2">Please fill out the form below and we will get back to you with a quote
+                      shortly.</div>
+                  </div>
+                  <div class="form-block w-block">
+                    <form class="rows-2" id="lp_form" method="POST" action="">
+                      <input type="hidden" name="trusted_form_cert_id" id="xxTrustedFormCertUrl_0"
+                        value="https://cert.trustedform.com/454a35b802f3e7b63ffabb4efedb7c6ebe67886c">
+                      <input type="hidden" name="xxTrustedFormPingUrl" id="xxTrustedFormPingUrl_0"
+                        value="https://ping.trustedform.com/0.HJDqajg8vVF20hwiDBJ92kct5idepgBM4vHylmh43kShfWSZKwm8HI37KqPToi0y3dhTIQ3N.uOjUbzs7aKNUWivkGh7I9Q.50hgmcLFsDabNx1wtZZPdQ">
+                      <input type="hidden" name="lp_offer_id" value="6">
+                      <input type="hidden" name="lp_campaign_id" value="63d45f078f866">
+                      <input type="hidden" name="lp_request_id" id="lp_request_id" value="">
+                      <!-- <input type="hidden" name="lp_redirect_url" value="https://realestatebidders.com/thank-you" />
+                      <input type="hidden" name="lp_redirect_fail_url" value="https://realestatebidders.com/thank-you" /> -->
+
+                      <input type="hidden" name="city" id="city" required="">
+                      <input type="hidden" name="state" id="state" required="">
+                      <input type="hidden" name="zip_code" id="zip_code" required="">
+                      <!-- <input type="hidden" name="email_address" required=""> -->
+
+
+                      <div class="steps active" data-step="1">
+                        <div class="w-layout-grid columns-7">
+                          <div>
+                            <label for="address">Property Address</label>
+                            <div class="w-embed">
+                              <input class="field" name="address" autocomplete="off" id="address" required="">
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="button-wrapper">
+                          <div class="prev-btn-wrapper"></div>
+                          <div class="next-btn-wrapper">
+
+                            <button  type="button" class="next-prev-btn w-button next-step" data-next-step="2">Next</button>
+                          </div>
+                        </div>
+
+                      </div>
+
+                      <div class="steps" data-step="2">
+                        <div class="w-layout-grid columns-7">
+                          <div>
+                            <label for="property_type">Property Type</label>
+                            <div class="select-wrapper-2">
+                              <select name="property_type" class="select w-select" required="">
+                                <option value="Single Family">Single Family (Owner-Occupied)</option>
+                                <option value="Condo/Town Home">Condo/Townhome</option>
+                                <option value="Mobile Home">Mobile Home</option>
+                                <option value="Single Tenant">Single Family (Tenant-Occupied)</option>
+                                <option value="Single Vacant">Single Family (Vacant)</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="button-wrapper">
+                          <div class="prev-btn-wrapper">
+                            <button  type="button" class="next-prev-btn w-button previous-step"
+                              data-previous-step="1">Previous</button>
+                          </div>
+                          <div class="next-btn-wrapper">
+
+                            <button  type="button" class="next-prev-btn w-button next-step" data-next-step="3">Next</button>
+                          </div>
+                        </div>
+
+                      </div>
+
+                      <div class="steps" data-step="3">
+                        <div class="w-layout-grid columns-7">
+                          <div>
+                            <label for="selling_timeframe">Selling Timeframe</label>
+                            <div class="select-wrapper-2">
+                              <select name="selling_timeframe" class="select w-select" required="">
+                                <!-- <option value="">- SELECT -</option> -->
+                                <option value="asap">ASAP</option>
+                                <option value="1 month">Within 3 Months</option>
+                                <option value="2-3 Months">Within 6 Months</option>
+                                <option value="4-5 Months">I'm in no rush</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="button-wrapper">
+                          <div class="prev-btn-wrapper">
+                            <button  type="button" class="next-prev-btn w-button previous-step" data-previous-step="2">Previous</button>
+                          </div>
+                          <div class="next-btn-wrapper">
+
+                            <button  type="button" class="next-prev-btn w-button next-step" data-next-step="4">Next</button>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="steps" data-step="4">
+                        <div class="w-layout-grid columns-7">
+                          <div>
+                            <label for="property_listed">Is this property listed with an agent?</label>
+                            <div class="select-wrapper-2">
+                              <select name="property_listed" class="select w-select" required="">
+                                <!-- <option value="">- SELECT -</option> -->
+                                <option value="No">No</option>
+                                <option value="Yes">Yes</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="button-wrapper">
+                          <div class="prev-btn-wrapper">
+                            <button  type="button" class="next-prev-btn w-button previous-step"
+                              data-previous-step="3">Previous</button>
+                          </div>
+                          <div class="next-btn-wrapper">
+
+                            <button  type="button" class="next-prev-btn w-button next-step" data-next-step="5">Next</button>
+                          </div>
+                        </div>
+
+                      </div>
+
+                      <div class="steps" data-step="5">
+                        <div class="w-layout-grid columns-7">
+                          <div>
+                            <label for="email_address">Email</label>
+                            <div class="w-embed">
+                              <input type="email" class="field" name="email_address" required="" placeholder="Enter Email Address">
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="button-wrapper">
+                          <div class="prev-btn-wrapper">
+                            <button  type="button" class="next-prev-btn w-button previous-step"
+                              data-previous-step="4">Previous</button>
+                          </div>
+                          <div class="next-btn-wrapper">
+
+                            <button  type="button" class="next-prev-btn w-button next-step" data-next-step="6">Next</button>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="steps" data-step="6">
+                        <div class="w-layout-grid columns-7">
+                          <div>
+                            <label for="phone_home">Phone Number</label>
+                            <div class="w-embed">
+                              <input class="field" name="phone_home" type="tel" autocomplete="off" inputmode="tel" required="" maxlength="15" placeholder="(808) 123-4567">
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="button-wrapper">
+                          <div class="prev-btn-wrapper">
+                            <button  type="button" class="next-prev-btn w-button previous-step"
+                              data-previous-step="5">Previous</button>
+                          </div>
+                          <div class="next-btn-wrapper">
+
+                            <button  type="button" class="next-prev-btn w-button next-step" data-next-step="7">Next</button>
+                          </div>
+                        </div>
+
+                      </div>
+
+
+                      <div class="steps" data-step="7">
+                        <div class="w-layout-grid columns-7">
+                          <div>
+                            <label for="">First Name</label>
+                            <div class="w-embed">
+                              <input class="field" name="first_name" type="text" required="">
+                            </div>
+                          </div>
+                          <div>
+                            <label for="last_name">Last Name</label>
+                            <div class="w-embed">
+                              <input class="field" name="last_name" type="text" required="">
+                            </div>
+                          </div>
+                        </div>
+
+                       
+                        <div>&nbsp;</div>
+
+                        <div class="small-text-2 muted gray" id="tcpa_consent_text">By clicking SUBMIT you authorize our
+                          partners to call you (including through automated means; e.g. auto-dialing, text and
+                          pre-recorded messaging) via telephone, mobile device (including SMS and MMS) and/or email, at
+                          the number you entered above, with products or services, even if your phone number is on any
+                          national or state Do Not Call list and you agree to our Terms of Use and Privacy Policy.
+                          Message and data rates may apply. Your consent here is not based on a condition of purchase.
+                        </div>
+                        <input type="hidden" name="tcpa_consent_text" value="By clicking SUBMIT you authorize our
+                        partners to call you (including through automated means; e.g. auto-dialing, text and
+                        pre-recorded messaging) via telephone, mobile device (including SMS and MMS) and/or email, at
+                        the number you entered above, with products or services, even if your phone number is on any
+                        national or state Do Not Call list and you agree to our Terms of Use and Privacy Policy.
+                        Message and data rates may apply. Your consent here is not based on a condition of purchase.">
+
+                        <label class="w-checkbox selectable-field" style="cursor: pointer;">
+                          <div class="w-checkbox-input w-checkbox-input--inputType-custom checkbox-2" style="pointer-events: none;"></div>
+                          <input type="checkbox" name="tcpa_consent_text" data-name="TCPA Agreement" required="" style="opacity:0;position:absolute;z-index:-1; pointer-events:none;"><span
+                            class="selectable-label-2 w-form-label" for="tcpa_consent_text" style="pointer-events: none;">I have read the statement above and I agree.</span>
+                        </label>
+
+                        <div>&nbsp;</div>
+                        <button type="button" class="button-2 w-button w-100" id="submit">SUBMIT</button>
+                        <!-- <input onclick="return gtag_report_conversion" type="button" class="button-2 w-button w-100" id="submit" value="SUBMIT"> -->
+
+                      </div>
+
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
