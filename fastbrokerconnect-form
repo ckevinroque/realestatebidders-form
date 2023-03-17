@@ -33,6 +33,7 @@
                             <label for="property_type">I am interested in</label>
                             <div class="select-wrapper-2">
                               <select name="interested" class="select w-select" required="">
+                                <option value="">- SELECT -</option>
                                 <option value="Listing my home with a broker">Listing my home with a broker</option>
                                 <option value="Getting a cash offer on my home">Getting a cash offer on my home</option>
                                 <option value="Open to all options">Open to all options</option>
