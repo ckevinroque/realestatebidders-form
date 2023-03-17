@@ -1,9 +1,9 @@
  <div class="main-container">
               <div class="container---l-2 align-center">
-                <div class="w-layout-grid rows-2 gap-3">
-                  <div>&nbsp;</div>
+                <div class="w-layout-grid rows-2 gap-2">
+                  
                   <div class="form-block w-block">
-                    
+                      <div>&nbsp;</div>
                       <label for="progress-status"><span id="current-step-label">1</span> out of 7</label>
                       <div class="progress-container">
                         <div id="progress-status" style="width:12.5%"><span id="progress-percent">12%</span></div>
