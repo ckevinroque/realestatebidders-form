@@ -19,6 +19,7 @@
                       <input type="hidden" name="lp_offer_id" value="6">
                       <input type="hidden" name="lp_campaign_id" value="63d45f078f866">
                       <input type="hidden" name="lp_request_id" id="lp_request_id" value="">
+                      <input type="hidden" name="landing_page_url" value="https://realestatebidders.com">
                       <!-- <input type="hidden" name="lp_redirect_url" value="https://realestatebidders.com/thank-you" />
                       <input type="hidden" name="lp_redirect_fail_url" value="https://realestatebidders.com/thank-you" /> -->
 
