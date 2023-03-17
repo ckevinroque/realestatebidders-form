@@ -20,6 +20,7 @@
                       <input type="hidden" name="lp_offer_id" value="14">
                       <input type="hidden" name="lp_campaign_id" value="640a22a4338aa">
                       <input type="hidden" name="lp_request_id" id="lp_request_id" value="">
+                      <input type="hidden" name="landing_page_url" value="https://www.superfasthomeoffers.com">
                       <!-- <input type="hidden" name="lp_redirect_url" value="https://www.superfasthomeoffers.com/thank-you" />
                       <input type="hidden" name="lp_redirect_fail_url" value="https://www.superfasthomeoffers.com/thank-you" /> -->
 
