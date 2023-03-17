@@ -1,7 +1,7 @@
  <div class="main-container">
               <div class="container---l-2 align-center">
                 <div class="w-layout-grid rows-2 gap-3">
-                 
+                  <div>&nbsp;</div>
                   <div class="form-block w-block">
                     
                       <label for="progress-status"><span id="current-step-label">1</span> out of 7</label>
