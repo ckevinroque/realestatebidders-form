@@ -27,7 +27,7 @@
                       <input type="hidden" name="state" id="state" required="">
                       <input type="hidden" name="zip_code" id="zip_code" required="">
 
-                      <div class="steps" data-step="1">
+                      <div class="steps active" data-step="1">
                         <div class="w-layout-grid columns-7">
                           <div>
                             <label for="property_type">I am interested in</label>
@@ -52,7 +52,7 @@
                       
                       
 
-                      <div class="steps active" data-step="2">
+                      <div class="steps" data-step="2">
                         <div class="w-layout-grid columns-7">
                           <div>
                             <label for="address">Property Address</label>
