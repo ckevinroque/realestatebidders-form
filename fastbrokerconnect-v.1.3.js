@@ -53,7 +53,7 @@
             }
         }
       });
-    }
+    
   
       $.validator.addMethod("valid_property_type", function(value, element) {
           return this.optional(element) || value !== "Mobile Home";
