@@ -1,6 +1,7 @@
       //Validation for REB - Do not copy
 
    function form_validation(){
+       console.log('validation initiate');
       $('input[name="phone_home"]').mask('(000) 000-0000');
 
       //validation
