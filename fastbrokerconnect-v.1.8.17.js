@@ -73,6 +73,7 @@
 //                the_element.valid();
 //              }, delay));
              return false;
+             
           }
         },
       });
@@ -166,6 +167,7 @@
       }, "Invalid phone number");
       
       function validating_start(){
+         $('.error').hide();
          var button = $('.next-btn-wrapper .next-step:visible');
          console.log(button);
            button.prop('disabled', true); // Disable the button
