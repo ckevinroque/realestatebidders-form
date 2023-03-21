@@ -113,8 +113,12 @@
                           isValid = true;
                       }
                   }
-                  button.prop('disabled', false); // Enable the button
-                  button.text('Next'); // Restore the text
+                 
+                 setTimeout(function() { 
+                   button.prop('disabled', false); // Enable the button
+                   button.text('Next'); // Restore the text
+                 }, 1500);
+                  
                   console.log('api email end');
               }
           });
@@ -153,9 +157,10 @@
                               isValid = false;
                       }
                   }
-                  button.prop('disabled', false); // Enable the button
-                  button.text('Next'); // Restore the text
-                  console.log('api phone end');
+                 setTimeout(function() { 
+                   button.prop('disabled', false); // Enable the button
+                   button.text('Next'); // Restore the text
+                 }, 1500);
               }
           });
 
