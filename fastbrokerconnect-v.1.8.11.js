@@ -6,7 +6,7 @@
 
       //validation
       $("#lp_form").validate({
-        onfocusout: function(element) { $(element).valid(); },
+        onfocusout: false,//function(element) { $(element).valid(); },
         rules: {
           address:{
             required: true,
@@ -90,6 +90,7 @@
       // Define a custom validation method for email validation
       $.validator.addMethod("emailValidation", function(value, element) {
           var isValid = false;
+         console.log('api email');
           var button = $('.next-btn-wrapper .next-step:visible');
            button.prop('disabled', true); // Disable the button
            button.text('Validating...'); // Change the text
@@ -114,6 +115,7 @@
                   }
                   button.prop('disabled', false); // Enable the button
                   button.text('Next'); // Restore the text
+                  console.log('api email end');
               }
           });
          
@@ -127,6 +129,7 @@
           var button = $('.next-btn-wrapper .next-step:visible');
            button.prop('disabled', true); // Disable the button
            button.text('Validating...'); // Change the text
+          console.log('api phone');
           // Call the phone number validation API using AJAX
           $.ajax({
               url: 'https://api.phone-validator.net/api/v2/verify',
@@ -152,6 +155,7 @@
                   }
                   button.prop('disabled', false); // Enable the button
                   button.text('Next'); // Restore the text
+                  console.log('api phone end');
               }
           });
 
