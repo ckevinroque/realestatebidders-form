@@ -62,12 +62,12 @@
         // Trigger only on focusout
         onkeyup: function(element) {
           if ($(element).attr('name') === 'phone_home' || $(element).attr('name') === 'email_address') {
-            var the_element = $(element);
-             var delay = 2000; // Delay in milliseconds (3 seconds)
-             clearTimeout(the_element.data('timeoutId')); // Clear the previous timeout, if any
-             the_element.data('timeoutId', setTimeout(function() {
-               the_element.valid();
-             }, delay));
+//             var the_element = $(element);
+//              var delay = 2000; // Delay in milliseconds (3 seconds)
+//              clearTimeout(the_element.data('timeoutId')); // Clear the previous timeout, if any
+//              the_element.data('timeoutId', setTimeout(function() {
+//                the_element.valid();
+//              }, delay));
              return false;
           }
         },
@@ -90,10 +90,8 @@
       // Define a custom validation method for email validation
       $.validator.addMethod("emailValidation", function(value, element) {
           var isValid = false;
-         console.log('api email');
-          var button = $('.next-btn-wrapper .next-step:visible');
-           button.prop('disabled', true); // Disable the button
-           button.text('Validating...'); // Change the text
+         
+          validating_start();
          
           // Call the email validation API using AJAX
           $.ajax({
@@ -115,8 +113,7 @@
                   }
                  
                  setTimeout(function() { 
-                   button.prop('disabled', false); // Enable the button
-                   button.text('Next'); // Restore the text
+                     validating_end();
                  }, 1500);
                   
                   console.log('api email end');
@@ -130,10 +127,8 @@
       // Define a custom validation method for phone number validation
       $.validator.addMethod("phoneValidation", function(value, element) {
           var isValid = false;
-          var button = $('.next-btn-wrapper .next-step:visible');
-           button.prop('disabled', true); // Disable the button
-           button.text('Validating...'); // Change the text
-          console.log('api phone');
+          validating_start();
+         
           // Call the phone number validation API using AJAX
           $.ajax({
               url: 'https://api.phone-validator.net/api/v2/verify',
@@ -158,13 +153,25 @@
                       }
                   }
                  setTimeout(function() { 
-                   button.prop('disabled', false); // Enable the button
-                   button.text('Next'); // Restore the text
+                   validating_end():
                  }, 1500);
               }
           });
 
           return isValid;
       }, "Invalid phone number");
+      
+      function validating_start(){
+         var button = $('.next-btn-wrapper .next-step:visible');
+         console.log(button);
+           button.prop('disabled', true); // Disable the button
+           button.text('Validating...'); // Change the text
+      }
+      
+      function validating_end(){
+         var button = $('.next-btn-wrapper .next-step:visible');
+          button.prop('disabled', false); // Enable the button
+          button.text('Next'); // Restore the text
+      }
          
    }
