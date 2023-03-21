@@ -153,7 +153,7 @@
                       }
                   }
                  setTimeout(function() { 
-                   validating_end():
+                   validating_end();
                  }, 1500);
               }
           });
