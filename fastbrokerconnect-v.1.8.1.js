@@ -73,7 +73,8 @@
       // Define a custom validation method for email validation
       $.validator.addMethod("emailValidation", function(value, element) {
           var isValid = false;
-
+          $('.w-button next-step'). prop('disabled', true);
+          $('.w-button next-step').text('Validating..');
           // Call the email validation API using AJAX
           $.ajax({
               url: 'https://api.email-validator.net/api/verify',
@@ -94,7 +95,8 @@
                   }
               }
           });
-
+          $('.w-button next-step'). prop('disabled', false);
+          $('.w-button next-step').text('Next');
           return isValid;
       }, "Invalid email address");
 
