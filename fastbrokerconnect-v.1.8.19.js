@@ -175,7 +175,7 @@
       }
       
       function validating_end(){
-         var button = $('.next-btn-wrapper .next-step:visible');
+         var button = $('.next-btn-wrapper .next-step');
           button.prop('disabled', false); // Enable the button
           button.text('Next'); // Restore the text
       }
