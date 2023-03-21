@@ -26,12 +26,16 @@
           phone_home: {
               required: true,
               phoneUS: true,
-              phoneValidation: true
+              phoneValidation: true,
+             onkeyup: false, // disable validation on input for this field only
+              onchange: false // disable validation on change for this field only
           },
           email_address: {
               required: true,
               email: true,
-              emailValidation: true
+              emailValidation: true,
+              onkeyup: false, // disable validation on input for this field only
+              onchange: false // disable validation on change for this field only
           },
           zip_code: {
               required: true,minlength: 5,maxlength: 5,zipcodeUS: true,number: true
