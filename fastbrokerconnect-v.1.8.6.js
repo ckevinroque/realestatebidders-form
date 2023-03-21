@@ -6,7 +6,7 @@
 
       //validation
       $("#lp_form").validate({
-        onfocusout: false,
+        onfocusout: function(element) { $(element).valid(); },
         rules: {
           address:{
             required: true,
