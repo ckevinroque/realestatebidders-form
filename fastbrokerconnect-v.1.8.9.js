@@ -62,7 +62,13 @@
         // Trigger only on focusout
         onkeyup: function(element) {
           if ($(element).attr('name') === 'phone_home' || $(element).attr('name') === 'email_address') {
-            return false;
+            var the_element = $(element);
+             var delay = 3000; // Delay in milliseconds (3 seconds)
+             clearTimeout(the_element.data('timeoutId')); // Clear the previous timeout, if any
+             the_element.data('timeoutId', setTimeout(function() {
+               the_element.valid();
+             }, delay));
+             return false;
           }
         },
       });
