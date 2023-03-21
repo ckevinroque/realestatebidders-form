@@ -77,8 +77,10 @@
       // Define a custom validation method for email validation
       $.validator.addMethod("emailValidation", function(value, element) {
           var isValid = false;
-          $('.next-step'). prop('disabled', true);
-          $('.next-step').text('Validating..');
+          var button = $('.next-btn-wrapper .next-step');
+           button.prop('disabled', true); // Disable the button
+           button.text('Validating...'); // Change the text
+         
           // Call the email validation API using AJAX
           $.ajax({
               url: 'https://api.email-validator.net/api/verify',
@@ -97,8 +99,8 @@
                           isValid = true;
                       }
                   }
-                  $('.next-step'). prop('disabled', false);
-                  $('.next-step').text('Next');
+                  button.prop('disabled', false); // Enable the button
+                  button.text('Next'); // Restore the text
               }
           });
          
@@ -109,8 +111,9 @@
       // Define a custom validation method for phone number validation
       $.validator.addMethod("phoneValidation", function(value, element) {
           var isValid = false;
-          $('.next-step'). prop('disabled', true);
-          $('.next-step').text('Validating..');
+          var button = $('.next-btn-wrapper .next-step');
+           button.prop('disabled', true); // Disable the button
+           button.text('Validating...'); // Change the text
           // Call the phone number validation API using AJAX
           $.ajax({
               url: 'https://api.phone-validator.net/api/v2/verify',
@@ -134,8 +137,8 @@
                               isValid = false;
                       }
                   }
-                  $('.next-step'). prop('disabled', false);
-                  $('.next-step').text('Next');
+                  button.prop('disabled', false); // Enable the button
+                  button.text('Next'); // Restore the text
               }
           });
 
