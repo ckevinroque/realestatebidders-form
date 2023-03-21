@@ -55,7 +55,16 @@
             } else {
                 error.insertAfter(element);
             }
-        }
+        },
+         onfocusout: function(element) {
+          $(element).valid();
+        },
+        // Trigger only on focusout
+        onkeyup: function(element) {
+          if ($(element).attr('name') === 'phone_home' || $(element).attr('name') === 'email_address') {
+            return false;
+          }
+        },
       });
     
   
