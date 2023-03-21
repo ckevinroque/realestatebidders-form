@@ -57,7 +57,11 @@
             }
         },
          onfocusout: function(element) {
-          $(element).valid();
+            if ($(element).attr('name') === 'phone_home' || $(element).attr('name') === 'email_address') {
+               return false;
+            }else{
+               $(element).valid();
+            }
         },
         // Trigger only on focusout
         onkeyup: function(element) {
