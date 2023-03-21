@@ -77,7 +77,7 @@
       // Define a custom validation method for email validation
       $.validator.addMethod("emailValidation", function(value, element) {
           var isValid = false;
-          var button = $('.next-btn-wrapper .next-step');
+          var button = $('.next-btn-wrapper .next-step:visible');
            button.prop('disabled', true); // Disable the button
            button.text('Validating...'); // Change the text
          
@@ -111,7 +111,7 @@
       // Define a custom validation method for phone number validation
       $.validator.addMethod("phoneValidation", function(value, element) {
           var isValid = false;
-          var button = $('.next-btn-wrapper .next-step');
+          var button = $('.next-btn-wrapper .next-step:visible');
            button.prop('disabled', true); // Disable the button
            button.text('Validating...'); // Change the text
           // Call the phone number validation API using AJAX
