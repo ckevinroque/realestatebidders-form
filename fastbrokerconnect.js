@@ -129,6 +129,5 @@
 
           return isValid;
       }, "Invalid phone number");
-
-  
-}
+     
+})
