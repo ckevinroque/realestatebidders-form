@@ -114,7 +114,7 @@
                  
                  setTimeout(function() { 
                      validating_end();
-                 }, 1500);
+                 }, 500);
                   
                   console.log('api email end');
               }
@@ -154,7 +154,7 @@
                   }
                  setTimeout(function() { 
                    validating_end();
-                 }, 1500);
+                 }, 500);
               }
           });
 
