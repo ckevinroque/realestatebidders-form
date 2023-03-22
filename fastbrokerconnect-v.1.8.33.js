@@ -250,7 +250,7 @@
      
       
       function validating_start(){
-         $('label.error:visible').hide();
+         
          var button = $('.next-btn-wrapper .next-step');
          console.log(button);
            button.prop('disabled', true); // Disable the button
@@ -264,6 +264,7 @@
       }
       
       function validate_email(next_step){
+        $('label.error:visible').hide();
          validating_start();
         
          if($("#lp_form").valid()){
@@ -274,10 +275,11 @@
          }
           setTimeout(function() { 
             validating_end();
-         }, 500);
+         }, 800);
       }
       
       function validate_phone(next_step){
+       $('label.error:visible').hide();
          validating_start();
          if($("#lp_form").valid()){
             $(".steps:visible").hide();
@@ -287,7 +289,7 @@
          }
           setTimeout(function() { 
                validating_end();
-           }, 500);
+           }, 800);
       }
    
 
