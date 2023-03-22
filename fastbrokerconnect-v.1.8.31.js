@@ -1,5 +1,6 @@
 //Validation for REB - Do not copy
  //validation
+ function initiate_validation(){
       $("#lp_form").validate({
         onfocusout: false,//function(element) { $(element).valid(); },
         rules: {
@@ -72,7 +73,7 @@
           }
         },
       });
-    
+  }
   
       $.validator.addMethod("valid_property_type", function(value, element) {
           return this.optional(element) || value !== "Mobile Home";
