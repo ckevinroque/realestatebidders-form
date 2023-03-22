@@ -1,10 +1,169 @@
 //Validation for REB - Do not copy
-   
 
-   function form_validation(){
+  <!--   Set autocomplete input   -->
+   let autocomplete;
+    let address1Field;
+    let postalField;
+    function initAutocomplete() {
+      address1Field = document.querySelector("#address");
+      postalField = document.querySelector("#zip_code");
+      autocomplete = new google.maps.places.Autocomplete(address1Field);
+      // address1Field.focus();
+      autocomplete.setComponentRestrictions({
+        country: ["us"],
+      });
+      autocomplete.setTypes(['address']);
+      //autocomplete.setTypes( [] );
+      autocomplete.addListener("place_changed", fillInAddress);
+    }
+    function fillInAddress() {
+      const place = autocomplete.getPlace();
+      let address1 = "";
+      let postcode = "";
+      for (const component of place.address_components) {
+        const componentType = component.types[0];
+        switch (componentType) {
+          case "street_number": {
+            address1 = `${component.long_name} ${address1}`;
+            break;
+          }
+          case "route": {
+            address1 += component.short_name;
+            break;
+          }
+          case "postal_code": {
+            postcode = `${component.short_name}${postcode}`;
+            break;
+          }
+          case "postal_code_suffix": {
+            postcode = `${postcode}`;
+            break;
+          }
+          case "postal_code_prefix": {
+            postcode = `${component.short_name}`;
+            break;
+          }
+          case "locality":
+            document.querySelector("#city").value = component.long_name;
+            break;
+          case "administrative_area_level_1": {
+            document.querySelector("#state").value = component.short_name;
+            break;
+          }
+        }
+      }
+      address1Field.value = address1;
+      postalField.value = postcode;
+  
+    }
+    //initAutocomplete();
+    
+    function get_request_id(){
+      const urlParams = new URLSearchParams(window.location.search);
+      const requestId = urlParams.get('request_id');
+      if (requestId) {
+        document.getElementById('lp_request_id').value = requestId;
+      }
+    }
+    
+    
+    $(document).on('input change onblur', 'input[name="address"]', function(){
+      setTimeout(function() { 
+        $("#lp_form").valid();
+      }, 800);
+    });
+
+ //next previous actions
+    $(document).on('click', '*[data-next-step]', function(){
+        //get the id of the clicked element
+        var next_step = $(this).attr('data-next-step');
+        var data_name = $(this).attr('data-name');
+        
+        if(data_name == "email_address"){
+        	validate_email();
+        }else if(data_name == "phone_home"){
+        	validate_phone();
+        }else{
+        		//validate all inputs
+        	if($("#lp_form").valid()){
+            $(".steps:visible").hide();
+            $("[data-step="+next_step+"]").show('slide', { direction: 'right' }, 300, function(){
+              progress_bar('add');
+           });
+        	}
+        }
+    });
       
       
-       console.log('validation initiate');
+    //back button
+    $(document).on('click', '*[data-previous-step]', function(){
+        //get the id of the clicked element
+        var previous_step = $(this).attr('data-previous-step');
+        $(".steps:visible").hide();
+        $("[data-step="+previous_step+"]").show('slide', { direction: 'left' }, 300, function(){
+          progress_bar('subtract');
+        });
+    })
+    
+    //submit form
+    $(document).on('click', '#submit', (function(event){
+      event.preventDefault();
+       if($("#lp_form").valid()){
+        $(this).text("Submitting... Please wait...");
+        $(this).prop('disabled', true);
+        $(this).css('background-color', 'gray');
+        $('input[name="phone_home"]').mask('0000000000');
+        gtag_report_conversion();
+        $.ajax({
+          url: 'https://realestatebidders.leadspediatrack.com/post.do',
+          type: 'POST',
+          data: $('#lp_form').serialize(),
+          success: function () {
+            document.location.href = '/thank-you';
+          },
+          error: function () {
+            document.location.href = '/thank-you';
+          },
+        });
+      }
+    }));
+
+
+      $(document).on('click', 'form .w-checkbox', function(event){
+        event.preventDefault();
+        var checkboxInput = $(this).find('.w-checkbox-input');
+        console.log(checkboxInput);
+        if (checkboxInput.hasClass('w--redirected-checked')) {
+          checkboxInput.removeClass('w--redirected-checked');
+          $('[name="tcpa_consent_text"]').prop('checked', false);
+        } else {
+          checkboxInput.addClass('w--redirected-checked');
+          $('[name="tcpa_consent_text"]').prop('checked', true);
+        }
+      });
+
+      $(document).on('change', '.w-checkbox-input', function(){
+        $(this).validate();
+      });
+
+
+      function progress_bar(status){
+        var step = 12.5;
+        var current_width = parseFloat($("#progress-status")[0].style.width);
+        var step_number = parseFloat($("#current-step-label").text());
+        var total_width = 0;
+
+        if(status == 'add'){
+            total_width = (current_width + step);
+            step_number = step_number + 1; 
+        }else{
+            total_width = (current_width - step);
+            step_number = step_number - 1; 
+        }
+        $("#progress-status").css("width", total_width + '%');
+        $("#progress-percent").text((total_width.toFixed()) + "%");
+        $("#current-step-label").text(step_number);
+    }
       
 
       
@@ -201,7 +360,6 @@
                 progress_bar('add');
             });
         }
-    }
-         
-}
+      }
+   
 
