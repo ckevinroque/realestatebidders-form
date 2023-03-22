@@ -96,8 +96,6 @@
       $.validator.addMethod("emailValidation", function(value, element) {
           var isValid = false;
          
-          validating_start();
-         
           // Call the email validation API using AJAX
           $.ajax({
               url: 'https://api.email-validator.net/api/verify',
@@ -132,8 +130,7 @@
       // Define a custom validation method for phone number validation
       $.validator.addMethod("phoneValidation", function(value, element) {
           var isValid = false;
-          validating_start();
-         
+          
           // Call the phone number validation API using AJAX
           $.ajax({
               url: 'https://api.phone-validator.net/api/v2/verify',
@@ -178,6 +175,24 @@
          var button = $('.next-btn-wrapper .next-step');
           button.prop('disabled', false); // Enable the button
           button.text('Next'); // Restore the text
+      }
+      
+      function validate_email(){
+         validating_start();
+         if($("[name='email_address']").valid()){
+            $(".steps:visible").hide();
+            $("[data-step="+next_step+"]").show('slide', { direction: 'right' }, 300, function(){
+           progress_bar('add');
+         });
+      }
+      
+      function validate_phone(){
+         validating_start();
+         if($("[name='phone_home']").valid()){
+            $(".steps:visible").hide();
+            $("[data-step="+next_step+"]").show('slide', { direction: 'right' }, 300, function(){
+           progress_bar('add');
+         });
       }
          
    }
