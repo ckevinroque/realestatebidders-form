@@ -1,6 +1,6 @@
 //Validation for REB - Do not copy
 
-  <!--   Set autocomplete input   -->
+
    let autocomplete;
     let address1Field;
     let postalField;
