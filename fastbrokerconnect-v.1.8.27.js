@@ -78,7 +78,8 @@
         //get the id of the clicked element
         var next_step = $(this).attr('data-next-step');
         var data_name = $(this).attr('data-name');
-        
+        console.log(next_step);
+         console.log(data_name);
         if(data_name == "email_address"){
         	validate_email();
         }else if(data_name == "phone_home"){
