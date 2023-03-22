@@ -182,8 +182,9 @@
          if($("[name='email_address']").valid()){
             $(".steps:visible").hide();
             $("[data-step="+next_step+"]").show('slide', { direction: 'right' }, 300, function(){
-           progress_bar('add');
-         });
+                progress_bar('add');
+            });
+        }
       }
       
       function validate_phone(){
@@ -191,8 +192,10 @@
          if($("[name='phone_home']").valid()){
             $(".steps:visible").hide();
             $("[data-step="+next_step+"]").show('slide', { direction: 'right' }, 300, function(){
-           progress_bar('add');
-         });
-      }
+                progress_bar('add');
+            });
+        }
+    }
          
-   }
+}
+
