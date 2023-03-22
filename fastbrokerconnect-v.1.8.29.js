@@ -338,7 +338,7 @@
       function validate_email(next_step){
          validating_start();
         
-         if($("[name='email_address']").valid()){
+         if($("#lp_form").valid()){
             $(".steps:visible").hide();
             $("[data-step="+next_step+"]").show('slide', { direction: 'right' }, 300, function(){
                 progress_bar('add');
@@ -351,7 +351,7 @@
       
       function validate_phone(next_step){
          validating_start();
-         if($("[name='phone_home']").valid()){
+         if($("#lp_form").valid()){
             $(".steps:visible").hide();
             $("[data-step="+next_step+"]").show('slide', { direction: 'right' }, 300, function(){
                 progress_bar('add');
