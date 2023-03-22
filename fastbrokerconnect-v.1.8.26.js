@@ -279,12 +279,6 @@
                           isValid = true;
                       }
                   }
-                 
-                 setTimeout(function() { 
-                     validating_end();
-                 }, 500);
-                  
-                  console.log('api email end');
               }
           });
          
@@ -319,9 +313,7 @@
                               isValid = false;
                       }
                   }
-                 setTimeout(function() { 
-                   validating_end();
-                 }, 500);
+
               }
           });
 
@@ -330,7 +322,7 @@
       
       function validating_start(){
          $('label.error:visible').hide();
-         var button = $('.next-btn-wrapper .next-step:visible');
+         var button = $('.next-btn-wrapper .next-step');
          console.log(button);
            button.prop('disabled', true); // Disable the button
            button.text('Validating...'); // Change the text
@@ -344,12 +336,16 @@
       
       function validate_email(){
          validating_start();
+         
          if($("[name='email_address']").valid()){
             $(".steps:visible").hide();
             $("[data-step="+next_step+"]").show('slide', { direction: 'right' }, 300, function(){
                 progress_bar('add');
             });
-        }
+         }
+          setTimeout(function() { 
+            validating_end();
+         }, 500);
       }
       
       function validate_phone(){
@@ -359,7 +355,10 @@
             $("[data-step="+next_step+"]").show('slide', { direction: 'right' }, 300, function(){
                 progress_bar('add');
             });
-        }
+         }
+          setTimeout(function() { 
+               validating_end();
+           }, 500);
       }
    
 
