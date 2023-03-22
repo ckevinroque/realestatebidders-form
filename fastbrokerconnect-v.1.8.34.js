@@ -268,28 +268,38 @@
          validating_start();
         
          if($("#lp_form").valid()){
-            $(".steps:visible").hide();
-            $("[data-step="+next_step+"]").show('slide', { direction: 'right' }, 300, function(){
+           setTimeout(function() { 
+              validating_end();
+              $(".steps:visible").hide();
+              $("[data-step="+next_step+"]").show('slide', { direction: 'right' }, 300, function(){
                 progress_bar('add');
-            });
+               });
+           }, 1000);
+           
+         }else{
+           setTimeout(function() { 
+             validating_end();
+           }, 800);
          }
-          setTimeout(function() { 
-            validating_end();
-         }, 800);
+         
       }
       
       function validate_phone(next_step){
        $('label.error:visible').hide();
          validating_start();
          if($("#lp_form").valid()){
+          setTimeout(function() { 
+            validating_end();
             $(".steps:visible").hide();
             $("[data-step="+next_step+"]").show('slide', { direction: 'right' }, 300, function(){
                 progress_bar('add');
             });
-         }
+           }, 1000);
+         }else{
           setTimeout(function() { 
                validating_end();
            }, 800);
+         }
       }
    
 
