@@ -81,9 +81,9 @@
         console.log(next_step);
          console.log(data_name);
         if(data_name == "email_address"){
-        	validate_email();
+        	validate_email(next_step);
         }else if(data_name == "phone_home"){
-        	validate_phone();
+        	validate_phone(next_step);
         }else{
         		//validate all inputs
         	if($("#lp_form").valid()){
@@ -335,9 +335,9 @@
           button.text('Next'); // Restore the text
       }
       
-      function validate_email(){
+      function validate_email(next_step){
          validating_start();
-         
+        
          if($("[name='email_address']").valid()){
             $(".steps:visible").hide();
             $("[data-step="+next_step+"]").show('slide', { direction: 'right' }, 300, function(){
@@ -349,7 +349,7 @@
          }, 500);
       }
       
-      function validate_phone(){
+      function validate_phone(next_step){
          validating_start();
          if($("[name='phone_home']").valid()){
             $(".steps:visible").hide();
