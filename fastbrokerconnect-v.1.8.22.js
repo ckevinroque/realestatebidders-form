@@ -1,4 +1,33 @@
 //Validation for REB - Do not copy
+   //next previous actions
+    $(document).on('click', '*[data-next-step]', function(){
+        //get the id of the clicked element
+        var next_step = $(this).attr('data-next-step');
+        var data_name = $(this).attr('data-name');
+        
+        if(data_name == "email_address"){
+        	validate_email();
+        }else if(data_name == "phone_home"){
+        	validate_phone();
+        }else{
+        		//validate all inputs
+        	if($("#lp_form").valid()){
+            $(".steps:visible").hide();
+            $("[data-step="+next_step+"]").show('slide', { direction: 'right' }, 300, function(){
+              progress_bar('add');
+           });
+        	}
+        }
+    });
+    //back button
+    $(document).on('click', '*[data-previous-step]', function(){
+        //get the id of the clicked element
+        var previous_step = $(this).attr('data-previous-step');
+        $(".steps:visible").hide();
+        $("[data-step="+previous_step+"]").show('slide', { direction: 'left' }, 300, function(){
+          progress_bar('subtract');
+        });
+    })
 
    function form_validation(){
        console.log('validation initiate');
