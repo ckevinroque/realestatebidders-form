@@ -1,5 +1,12 @@
 //Validation for REB - Do not copy
-   //next previous actions
+   
+
+   function form_validation(){
+      
+      
+       console.log('validation initiate');
+      
+      //next previous actions
     $(document).on('click', '*[data-next-step]', function(){
         //get the id of the clicked element
         var next_step = $(this).attr('data-next-step');
@@ -19,6 +26,8 @@
         	}
         }
     });
+      
+      
     //back button
     $(document).on('click', '*[data-previous-step]', function(){
         //get the id of the clicked element
@@ -28,9 +37,9 @@
           progress_bar('subtract');
         });
     })
-
-   function form_validation(){
-       console.log('validation initiate');
+      
+      
+      
       $('input[name="phone_home"]').mask('(000) 000-0000');
 
       //validation
