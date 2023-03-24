@@ -16,33 +16,62 @@
         return this.optional(element) || zipCode !== "";
       }, "Please enter specific valid address.");
   
-      // Define a custom validation method for email validation
-      $.validator.addMethod("emailValidation", function(value, element) {
-          var isValid = false;
-         
-          // Call the email validation API using AJAX
-          $.ajax({
-              url: 'https://api.email-validator.net/api/verify',
-              type: 'POST',
-              cache: false,
-              crossDomain: true,
-              data: { EmailAddress: value, APIKey: 'ev-6dc428de6b65a2129a988ea21a983459' },
-              dataType: 'json',
-              async: false, // set async to false to wait for response
-              success: function (json) {
-                  // check API result
-                  if (typeof(json.status) != "undefined") {
-                      var resultcode = json.status;
-                      // resultcode 200, 207, 215 - valid
-                      if (resultcode == 200 || resultcode == 207 || resultcode == 215) {
-                          isValid = true;
-                      }
-                  }
+      var validateEmailDebounced = _.debounce(function(value) {
+        $.ajax({
+          url: 'https://api.email-validator.net/api/verify',
+          type: 'POST',
+          cache: false,
+          crossDomain: true,
+          data: { EmailAddress: value, APIKey: 'ev-6dc428de6b65a2129a988ea21a983459' },
+          dataType: 'json',
+          async: false,
+          success: function(json) {
+            if (typeof(json.status) != "undefined") {
+              var resultcode = json.status;
+              if (resultcode == 200 || resultcode == 207 || resultcode == 215) {
+                isValid = true;
               }
-          });
-         
-          return isValid;
+            }
+          }
+        });
+      }, 500);
+
+      $.validator.addMethod("emailValidation", function(value, element) {
+        var isValid = false;
+
+        validateEmailDebounced(value);
+
+        // return false here, since the AJAX call is async and we don't know the result yet
+        return false;
       }, "Invalid email address");
+
+      // Define a custom validation method for email validation
+//       $.validator.addMethod("emailValidation", function(value, element) {
+//           var isValid = false;
+         
+//           // Call the email validation API using AJAX
+//           $.ajax({
+//               url: 'https://api.email-validator.net/api/verify',
+//               type: 'POST',
+//               cache: false,
+//               crossDomain: true,
+//               data: { EmailAddress: value, APIKey: 'ev-6dc428de6b65a2129a988ea21a983459' },
+//               dataType: 'json',
+//               async: false, // set async to false to wait for response
+//               success: function (json) {
+//                   // check API result
+//                   if (typeof(json.status) != "undefined") {
+//                       var resultcode = json.status;
+//                       // resultcode 200, 207, 215 - valid
+//                       if (resultcode == 200 || resultcode == 207 || resultcode == 215) {
+//                           isValid = true;
+//                       }
+//                   }
+//               }
+//           });
+         
+//           return isValid;
+//       }, "Invalid email address");
 
   
       // Define a custom validation method for phone number validation
