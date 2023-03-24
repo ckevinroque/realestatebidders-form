@@ -80,6 +80,12 @@
       }, "Invalid phone number");
 
 
+     $.validator.addMethod("check_group_size", function(value, element, options) {
+       var groupSize = $(options[1]).find(":checkbox:checked").length;
+       return groupSize > 0 && groupSize >= options[0];
+     }, "Please select at least {0} options.");
+
+
     let autocomplete;
     let address1Field;
     let postalField;
