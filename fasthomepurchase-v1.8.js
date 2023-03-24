@@ -16,106 +16,69 @@
         return this.optional(element) || zipCode !== "";
       }, "Please enter specific valid address.");
   
-      var validateEmailDebounced = _.debounce(function(value) {
-        $.ajax({
-          url: 'https://api.email-validator.net/api/verify',
-          type: 'POST',
-          cache: false,
-          crossDomain: true,
-          data: { EmailAddress: value, APIKey: 'ev-6dc428de6b65a2129a988ea21a983459' },
-          dataType: 'json',
-          async: false,
-          success: function(json) {
-            if (typeof(json.status) != "undefined") {
-              var resultcode = json.status;
-              if (resultcode == 200 || resultcode == 207 || resultcode == 215) {
-                $('#email-validation-result').val('true');
-              } else {
-                $('#email-validation-result').val('false');
-              }
-            }
-          }
-        });
-      }, 500);
-
-      $.validator.addMethod("emailValidation", function(value, element) {
-        var isValid = $('#email-validation-result').val() == 'true';
-
-        validateEmailDebounced(value);
-
-        return isValid;
-      }, "Invalid email address");
-
-      // Define a custom validation method for email validation
-//       $.validator.addMethod("emailValidation", function(value, element) {
-//           var isValid = false;
-         
-//           // Call the email validation API using AJAX
-//           $.ajax({
-//               url: 'https://api.email-validator.net/api/verify',
-//               type: 'POST',
-//               cache: false,
-//               crossDomain: true,
-//               data: { EmailAddress: value, APIKey: 'ev-6dc428de6b65a2129a988ea21a983459' },
-//               dataType: 'json',
-//               async: false, // set async to false to wait for response
-//               success: function (json) {
-//                   // check API result
-//                   if (typeof(json.status) != "undefined") {
-//                       var resultcode = json.status;
-//                       // resultcode 200, 207, 215 - valid
-//                       if (resultcode == 200 || resultcode == 207 || resultcode == 215) {
-//                           isValid = true;
-//                       }
-//                   }
+//       var validateEmailDebounced = _.debounce(function(value) {
+//         $.ajax({
+//           url: 'https://api.email-validator.net/api/verify',
+//           type: 'POST',
+//           cache: false,
+//           crossDomain: true,
+//           data: { EmailAddress: value, APIKey: 'ev-6dc428de6b65a2129a988ea21a983459' },
+//           dataType: 'json',
+//           async: false,
+//           success: function(json) {
+//             if (typeof(json.status) != "undefined") {
+//               var resultcode = json.status;
+//               if (resultcode == 200 || resultcode == 207 || resultcode == 215) {
+//                 $('#email-validation-result').val('true');
+//               } else {
+//                 $('#email-validation-result').val('false');
 //               }
-//           });
-         
-//           return isValid;
+//             }
+//           }
+//         });
+//       }, 500);
+
+//       $.validator.addMethod("emailValidation", function(value, element) {
+//         var isValid = $('#email-validation-result').val() == 'true';
+
+//         validateEmailDebounced(value);
+
+//         return isValid;
 //       }, "Invalid email address");
 
-       var validatePhoneDebounced = _.debounce(function(value) {
-       // Call the phone number validation API using AJAX
+      //Define a custom validation method for email validation
+      $.validator.addMethod("emailValidation", function(value, element) {
+          var isValid = false;
+         
+          // Call the email validation API using AJAX
           $.ajax({
-              url: 'https://api.phone-validator.net/api/v2/verify',
+              url: 'https://api.email-validator.net/api/verify',
               type: 'POST',
-              data: { PhoneNumber: value, CountryCode: 'us', Locale: 'en-US', APIKey: 'pv-ba9cb9c6e2ea30a44bcbb2547f89daeb'},
+              cache: false,
+              crossDomain: true,
+              data: { EmailAddress: value, APIKey: 'ev-6dc428de6b65a2129a988ea21a983459' },
               dataType: 'json',
               async: false, // set async to false to wait for response
+              beforeSend: function() {
+                 validating_start();
+              },
               success: function (json) {
                   // check API result
                   if (typeof(json.status) != "undefined") {
-                      statuscode = json.status;
-                      switch (statuscode) {
-                          case "VALID_CONFIRMED":
-                          case "VALID_UNCONFIRMED":
-                              isValid = true;
-                              break;
-                          case "INVALID":
-                              isValid = false;
-                              break;
-                          default:
-                              isValid = false;
+                      var resultcode = json.status;
+                      // resultcode 200, 207, 215 - valid
+                      if (resultcode == 200 || resultcode == 207 || resultcode == 215) {
+                          isValid = true;
                       }
                   }
-
               }
           });
-      }, 500);
-  
-
-      $.validator.addMethod("phoneValidation", function(value, element) {
-          var isValid = false;
-          validatePhoneDebounced(value);
-          // return the value of isValid here, since the AJAX call is async and we don't know the result yet
+         
           return isValid;
-      }, "Invalid phone number");
+      }, "Invalid email address");
 
-      // Define a custom validation method for phone number validation
-//       $.validator.addMethod("phoneValidation", function(value, element) {
-//           var isValid = false;
-          
-//           // Call the phone number validation API using AJAX
+//        var validatePhoneDebounced = _.debounce(function(value) {
+//        // Call the phone number validation API using AJAX
 //           $.ajax({
 //               url: 'https://api.phone-validator.net/api/v2/verify',
 //               type: 'POST',
@@ -141,9 +104,52 @@
 
 //               }
 //           });
+//       }, 500);
+  
 
+//       $.validator.addMethod("phoneValidation", function(value, element) {
+//           var isValid = false;
+//           validatePhoneDebounced(value);
+//           // return the value of isValid here, since the AJAX call is async and we don't know the result yet
 //           return isValid;
 //       }, "Invalid phone number");
+
+      // Define a custom validation method for phone number validation
+      $.validator.addMethod("phoneValidation", function(value, element) {
+          var isValid = false;
+          
+          // Call the phone number validation API using AJAX
+          $.ajax({
+              url: 'https://api.phone-validator.net/api/v2/verify',
+              type: 'POST',
+              data: { PhoneNumber: value, CountryCode: 'us', Locale: 'en-US', APIKey: 'pv-ba9cb9c6e2ea30a44bcbb2547f89daeb'},
+              dataType: 'json',
+              async: false, // set async to false to wait for response
+              beforeSend: function() {
+                 validating_start();
+              },
+              success: function (json) {
+                  // check API result
+                  if (typeof(json.status) != "undefined") {
+                      statuscode = json.status;
+                      switch (statuscode) {
+                          case "VALID_CONFIRMED":
+                          case "VALID_UNCONFIRMED":
+                              isValid = true;
+                              break;
+                          case "INVALID":
+                              isValid = false;
+                              break;
+                          default:
+                              isValid = false;
+                      }
+                  }
+
+              }
+          });
+
+          return isValid;
+      }, "Invalid phone number");
 
 
  
