@@ -346,7 +346,8 @@
      
       
       function validating_start(){
-         
+          $('label.error:visible').hide();
+       
          var button = $('.next-btn-wrapper .next-step');
          console.log(button);
            button.prop('disabled', true); // Disable the button
