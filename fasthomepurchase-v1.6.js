@@ -29,7 +29,9 @@
             if (typeof(json.status) != "undefined") {
               var resultcode = json.status;
               if (resultcode == 200 || resultcode == 207 || resultcode == 215) {
-                isValid = true;
+                $('#email-validation-result').val('true');
+              } else {
+                $('#email-validation-result').val('false');
               }
             }
           }
@@ -37,12 +39,11 @@
       }, 500);
 
       $.validator.addMethod("emailValidation", function(value, element) {
-        var isValid = false;
+        var isValid = $('#email-validation-result').val() == 'true';
 
         validateEmailDebounced(value);
 
-        // return false here, since the AJAX call is async and we don't know the result yet
-        return false;
+        return isValid;
       }, "Invalid email address");
 
       // Define a custom validation method for email validation
@@ -103,12 +104,12 @@
       }, 500);
   
 
-     $.validator.addMethod("phoneValidation", function(value, element) {
-        var isValid = false;
-        validatePhoneDebounced(value);
-        // return false here, since the AJAX call is async and we don't know the result yet
-        return false;
-      }, "Invalid email address");
+      $.validator.addMethod("phoneValidation", function(value, element) {
+          var isValid = false;
+          validatePhoneDebounced(value);
+          // return the value of isValid here, since the AJAX call is async and we don't know the result yet
+          return isValid;
+      }, "Invalid phone number");
 
       // Define a custom validation method for phone number validation
 //       $.validator.addMethod("phoneValidation", function(value, element) {
