@@ -238,8 +238,7 @@
         //get the id of the clicked element
         var next_step = $(this).attr('data-next-step');
         var data_name = $(this).attr('data-name');
-        console.log(next_step);
-         console.log(data_name);
+        
         if(data_name == "email_address"){
         	validate_email(next_step);
         }else if(data_name == "phone_home"){
@@ -291,9 +290,9 @@
 
         // Add comma-separated string to form data
         formData.push({ name: "reason_to_sell", value: optionsString });
-         
+         console.log(formData);
         $.ajax({
-          url: 'https://realestatebidders.leadspediatrack.com/post.do',
+          //url: 'https://realestatebidders.leadspediatrack.com/post.do',
           type: 'POST',
           data: formData,
           success: function () {
@@ -310,7 +309,7 @@
       $(document).on('click', 'form .w-checkbox', function(event){
         event.preventDefault();
         var checkboxInput = $(this).find('.w-checkbox-input');
-        console.log(checkboxInput);
+        //console.log(checkboxInput);
         if (checkboxInput.hasClass('w--redirected-checked')) {
           checkboxInput.removeClass('w--redirected-checked');
           $('[name="tcpa_consent_text"]').prop('checked', false);
@@ -326,7 +325,7 @@
 
 
       function progress_bar(status){
-        var step = 12.5;
+        var step = 10;
         var current_width = parseFloat($("#progress-status")[0].style.width);
         var step_number = parseFloat($("#current-step-label").text());
         var total_width = 0;
@@ -353,7 +352,7 @@
           $('label.error:visible').hide();
        
          var button = $('.next-btn-wrapper .next-step');
-         console.log(button);
+        
            button.prop('disabled', true); // Disable the button
            button.text('Validating...'); // Change the text
       }
