@@ -166,8 +166,10 @@
         console.log(next_step);
          console.log(data_name);
         if(data_name == "email_address"){
+         validating_start();
         	validate_email(next_step);
         }else if(data_name == "phone_home"){
+         validating_start();
         	validate_phone(next_step);
         }else{
         		//validate all inputs
@@ -290,7 +292,7 @@
       
       function validate_email(next_step){
         $('label.error:visible').hide();
-         validating_start();
+         
         
          if($("#lp_form").valid()){
            setTimeout(function() { 
@@ -311,7 +313,7 @@
       
       function validate_phone(next_step){
        $('label.error:visible').hide();
-         validating_start();
+       
          if($("#lp_form").valid()){
           setTimeout(function() { 
             validating_end();
