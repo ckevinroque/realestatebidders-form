@@ -73,12 +73,8 @@
 //           return isValid;
 //       }, "Invalid email address");
 
-  
-      // Define a custom validation method for phone number validation
-      $.validator.addMethod("phoneValidation", function(value, element) {
-          var isValid = false;
-          
-          // Call the phone number validation API using AJAX
+       var validatePhoneDebounced = _.debounce(function(value) {
+       // Call the phone number validation API using AJAX
           $.ajax({
               url: 'https://api.phone-validator.net/api/v2/verify',
               type: 'POST',
@@ -104,9 +100,52 @@
 
               }
           });
+      }, 500);
+  
 
-          return isValid;
-      }, "Invalid phone number");
+     $.validator.addMethod("phoneValidation", function(value, element) {
+        var isValid = false;
+        validatePhoneDebounced(value);
+        // return false here, since the AJAX call is async and we don't know the result yet
+        return false;
+      }, "Invalid email address");
+
+      // Define a custom validation method for phone number validation
+//       $.validator.addMethod("phoneValidation", function(value, element) {
+//           var isValid = false;
+          
+//           // Call the phone number validation API using AJAX
+//           $.ajax({
+//               url: 'https://api.phone-validator.net/api/v2/verify',
+//               type: 'POST',
+//               data: { PhoneNumber: value, CountryCode: 'us', Locale: 'en-US', APIKey: 'pv-ba9cb9c6e2ea30a44bcbb2547f89daeb'},
+//               dataType: 'json',
+//               async: false, // set async to false to wait for response
+//               success: function (json) {
+//                   // check API result
+//                   if (typeof(json.status) != "undefined") {
+//                       statuscode = json.status;
+//                       switch (statuscode) {
+//                           case "VALID_CONFIRMED":
+//                           case "VALID_UNCONFIRMED":
+//                               isValid = true;
+//                               break;
+//                           case "INVALID":
+//                               isValid = false;
+//                               break;
+//                           default:
+//                               isValid = false;
+//                       }
+//                   }
+
+//               }
+//           });
+
+//           return isValid;
+//       }, "Invalid phone number");
+
+
+ 
 
 
      $.validator.addMethod("require_from_group", function(value, element, options) {
