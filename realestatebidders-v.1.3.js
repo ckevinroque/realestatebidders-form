@@ -327,4 +327,25 @@
          }
       }
    
+      
+// Get the query string from the URL
+var queryString = window.location.search;
+queryString = queryString.substr(1);
+
+// Split the query string into an array of key-value pairs
+var queryParams = queryString.split('&');
+
+// Loop through each key-value pair
+if(queryParams){
+  $.each(queryParams, function(index, param) {
+   // Split the key-value pair into its separate parts
+   var parts = param.split('=');
+   var paramName = parts[0];
+   var paramValue = decodeURIComponent(parts[1]);
+
+   // Set the value of the corresponding input field
+   $('input[name="' + paramName + '"]').val(paramValue);
+ });
+
+}
 
