@@ -222,10 +222,10 @@
           type: 'POST',
           data: $('#lp_form').serialize(),
           success: function () {
-            document.location.href = '/thank-you/?'+params_query;';
+            document.location.href = '/thank-you/?'+params_query;
           },
           error: function () {
-            document.location.href = '/thank-you/?'+params_query;';
+            document.location.href = '/thank-you/?'+params_query;
           },
         });
       }
