@@ -15,6 +15,10 @@
         var zipCode = $('input[name="zip_code"]').val();
         return this.optional(element) || zipCode !== "";
       }, "Please enter specific valid address.");
+
+      $.validator.addMethod('sellingReasons', function(value, element) {
+        return $('input.selling-reason:checked').length > 0;
+      }, 'Please select at least one selling reason.');
   
 //       var validateEmailDebounced = _.debounce(function(value) {
 //         $.ajax({
