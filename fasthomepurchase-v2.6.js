@@ -404,7 +404,8 @@
 
 
       // Set checkbox value to "yes" if checked, otherwise "no"
- 
+    $('.checkbox-group input[type="checkbox"]').on('change', function() {
+      // Set checkbox value to "yes" if checked, otherwise "no"
       if ($(this).is(':checked')) {
         $(this).val('yes');
         // Set selling_reason to the text of the label for the first checked checkbox
