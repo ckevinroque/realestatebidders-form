@@ -360,4 +360,24 @@
    }
 }
 
+$(document).ready(function() {
+  setTimeout(function() {
+    var $zipCodeInput = $('input[name="zip_code"]');
+    if ($zipCodeInput.val()) {
+      var zipCode = $zipCodeInput.val();
+      $.ajax({
+        url: "https://api.zippopotam.us/us/" + zipCode,
+        method: "GET"
+      }).then(function(data) {
+        var city = data.places[0]["place name"];
+        var state = data.places[0]["state abbreviation"];
+        $('input[name="city"]').val(city);
+        $('input[name="state"]').val(state);
+      }).fail(function(jqXHR, textStatus, errorThrown) {
+        console.error(errorThrown);
+      });
+    }
+  }, 2000);
+});
+
 
