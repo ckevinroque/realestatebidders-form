@@ -323,16 +323,18 @@
  function initiate_prepop(){
 
    var urlParams = new URLSearchParams(window.location.search);
-  console.log(urlParams);
+ 
    var requestId = urlParams.get('request_id');
    if (requestId) {
      $('#lp_request_id').val(requestId);
    }
+   console.log(requestId);
 
    var first_name = urlParams.get('first_name');
    if(first_name){
      $('input[name="first_name"]').val(first_name);
    }
+   console.log(first_name);
 
    var last_name = urlParams.get('last_name');
    if(last_name){
