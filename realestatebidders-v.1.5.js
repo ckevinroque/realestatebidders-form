@@ -323,6 +323,7 @@
  function initiate_prepop(){
 
    var urlParams = new URLSearchParams(window.location.search);
+  console.log(urlParams);
    var requestId = urlParams.get('request_id');
    if (requestId) {
      $('#lp_request_id').val(requestId);
