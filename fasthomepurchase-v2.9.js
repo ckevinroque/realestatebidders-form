@@ -405,17 +405,18 @@
 
       // Set checkbox value to "yes" if checked, otherwise "no"
     $('.checkbox-group input[type="checkbox"]').on('change', function() {
-      // Set checkbox value to "yes" if checked, otherwise "no"
       if ($(this).is(':checked')) {
         $(this).val('yes');
         // Set selling_reason to the text of the label for the first checked checkbox
         $('input[name="selling_reason"]').val($('label:has(input:checked)').text().trim());
+       console.log('yes');
       } else {
         $(this).val('no');
         // Update selling_reason if necessary
         if ($('input[name="selling_reason"]').val() === $(this).parent().text().trim()) {
           $('input[name="selling_reason"]').val($('label:has(input:checked)').text().trim());
         }
+       console.log('no');
       }
     });
    
