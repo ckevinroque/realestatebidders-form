@@ -1,6 +1,5 @@
 //Validation for REB - Do not copy
  //validation
-
      $('input[name="phone_home"]').mask('(000) 000-0000');
 
       $.validator.addMethod("valid_property_type", function(value, element) {
