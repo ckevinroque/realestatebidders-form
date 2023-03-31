@@ -292,7 +292,7 @@
         formData.push({ name: "reason_to_sell", value: optionsString });
          console.log(formData);
         $.ajax({
-          //url: 'https://realestatebidders.leadspediatrack.com/post.do',
+          url: 'https://realestatebidders.leadspediatrack.com/post.do',
           type: 'POST',
           data: formData,
           success: function () {
