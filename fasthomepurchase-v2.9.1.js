@@ -151,14 +151,9 @@
           return isValid;
       }, "Invalid phone number");
 
-
- 
-
-
-     $.validator.addMethod("require_from_group", function(value, element, options) {
-       var groupSize = $(options[1]).find(":checkbox:checked").length;
-       return groupSize > 0 && groupSize >= options[0];
-     }, "Please select at least {0} options.");
+     $.validator.addMethod("require_selling_reason", function(value, element) {
+      return $('.selling_reason:checked').length > 0;
+     }, "Please select at least one option.");
 
 
     let autocomplete;
@@ -404,17 +399,17 @@
 
 
       // Set checkbox value to "yes" if checked, otherwise "no"
-    $('.checkbox-group input[type="checkbox"]').on('change', function() {
+    $('.selling-reason').on('change', function() {
       if ($(this).is(':checked')) {
         $(this).val('yes');
         // Set selling_reason to the text of the label for the first checked checkbox
-        $('input[name="selling_reason"]').val($('label:has(input:checked)').text().trim());
+        $('input[name="selling_reason"]').val($('label .selling-reason:has(input:checked)').text().trim());
        console.log('yes');
       } else {
         $(this).val('no');
         // Update selling_reason if necessary
         if ($('input[name="selling_reason"]').val() === $(this).parent().text().trim()) {
-          $('input[name="selling_reason"]').val($('label:has(input:checked)').text().trim());
+          $('input[name="selling_reason"]').val($('label .selling-reason:has(input:checked)').text().trim());
         }
        console.log('no');
       }
