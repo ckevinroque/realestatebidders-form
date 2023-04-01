@@ -362,7 +362,7 @@
          }
       }
 
-   $('.selling-reason').on('change', function() {
+   $(document).on('input change onblur', '.selling-reason', function(){
      if ($(this).is(':checked')) {
        $(this).val('yes');
        // Set selling_reason to the text of the label for the first checked checkbox
