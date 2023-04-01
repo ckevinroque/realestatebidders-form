@@ -17,7 +17,7 @@
       }, "Please enter specific valid address.");
 
       $.validator.addMethod('sellingReasons', function(value, element) {
-        return $('input.selling-reason:checked').length > 0;
+        return $('.selling-reason:checked').length > 0;
       }, 'Please select at least one selling reason.');
   
 //       var validateEmailDebounced = _.debounce(function(value) {
@@ -154,10 +154,6 @@
 
           return isValid;
       }, "Invalid phone number");
-
-     $.validator.addMethod("require_selling_reason", function(value, element) {
-      return $('.selling_reason:checked').length > 0;
-     }, "Please select at least one option.");
 
 
     let autocomplete;
@@ -402,20 +398,13 @@
       }
 
 
-      // Set checkbox value to "yes" if checked, otherwise "no"
     $('.selling-reason').on('change', function() {
-      if ($(this).is(':checked')) {
-        $(this).val('yes');
-        // Set selling_reason to the text of the label for the first checked checkbox
-        $('input[name="selling_reason"]').val($('label .selling-reason:has(input:checked)').text().trim());
-       console.log('yes');
+      var checked = $('input.selling-reason:checked');
+      if (checked.length > 0) {
+        var sellingReason = checked.first().closest('label').text().trim();
+        $('input[name="selling_reason"]').val(sellingReason);
       } else {
-        $(this).val('no');
-        // Update selling_reason if necessary
-        if ($('input[name="selling_reason"]').val() === $(this).parent().text().trim()) {
-          $('input[name="selling_reason"]').val($('label .selling-reason:has(input:checked)').text().trim());
-        }
-       console.log('no');
+        $('input[name="selling_reason"]').val('');
       }
     });
    
