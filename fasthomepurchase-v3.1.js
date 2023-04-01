@@ -224,18 +224,18 @@
 
         // Add comma-separated string to form data
         formData.push({ name: "reason_to_sell", value: optionsString });
-         console.log(formData);
-//         $.ajax({
-//           url: 'https://realestatebidders.leadspediatrack.com/post.do',
-//           type: 'POST',
-//           data: formData,
-//           success: function () {
-//             document.location.href = '/thank-you';
-//           },
-//           error: function () {
-//             document.location.href = '/thank-you';
-//           },
-//         });
+         //console.log(formData);
+        $.ajax({
+          url: 'https://realestatebidders.leadspediatrack.com/post.do',
+          type: 'POST',
+          data: formData,
+          success: function () {
+            document.location.href = '/thank-you';
+          },
+          error: function () {
+            document.location.href = '/thank-you';
+          },
+        });
       }
     }));
 
