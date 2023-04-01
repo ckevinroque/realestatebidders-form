@@ -274,10 +274,6 @@
 
       
       $('input[name="phone_home"]').mask('(000) 000-0000');
-
-      $(".selling-reason").rules("add", {
-          sellingReasons: true
-      });
       
       function validating_start(){
           $('label.error:visible').hide();
