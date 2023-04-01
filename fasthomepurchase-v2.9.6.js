@@ -362,20 +362,21 @@
          }
       }
 
-   $(document).on('input change onblur', '.selling-reason', function(){
+   $(document).on('input change click', '.selling-reason', function(){
      if ($(this).is(':checked')) {
        $(this).val('yes');
        // Set selling_reason to the text of the label for the first checked checkbox
-       $('input[name="selling_reason"]').val($('label .selling-reason:has(input:checked)').text().trim());
+       $('input[name="selling_reason"]').val($('.selling-reason:checked').parent().text().trim());
        console.log('selling_reason value set to: ' + $('input[name="selling_reason"]').val());
      } else {
        $(this).val('no');
        // Update selling_reason if necessary
        if ($('input[name="selling_reason"]').val() === $(this).parent().text().trim()) {
-         $('input[name="selling_reason"]').val($('label .selling-reason:has(input:checked)').text().trim());
+         $('input[name="selling_reason"]').val($('.selling-reason:checked').parent().text().trim());
        }
        console.log('selling_reason value set to: ' + $('input[name="selling_reason"]').val());
      }
    });
+
 
    
