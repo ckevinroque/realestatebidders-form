@@ -21,36 +21,6 @@
   console.log($('input.selling-reason:checked').length > 0);
         return $('.selling-reason:checked').length > 0;
       }, 'Please select at least one selling reason.');
-  
-//       var validateEmailDebounced = _.debounce(function(value) {
-//         $.ajax({
-//           url: 'https://api.email-validator.net/api/verify',
-//           type: 'POST',
-//           cache: false,
-//           crossDomain: true,
-//           data: { EmailAddress: value, APIKey: 'ev-6dc428de6b65a2129a988ea21a983459' },
-//           dataType: 'json',
-//           async: false,
-//           success: function(json) {
-//             if (typeof(json.status) != "undefined") {
-//               var resultcode = json.status;
-//               if (resultcode == 200 || resultcode == 207 || resultcode == 215) {
-//                 $('#email-validation-result').val('true');
-//               } else {
-//                 $('#email-validation-result').val('false');
-//               }
-//             }
-//           }
-//         });
-//       }, 500);
-
-//       $.validator.addMethod("emailValidation", function(value, element) {
-//         var isValid = $('#email-validation-result').val() == 'true';
-
-//         validateEmailDebounced(value);
-
-//         return isValid;
-//       }, "Invalid email address");
 
       //Define a custom validation method for email validation
       $.validator.addMethod("emailValidation", function(value, element) {
@@ -366,13 +336,13 @@
      if ($(this).is(':checked')) {
        $(this).val('yes');
        // Set selling_reason to the text of the label for the first checked checkbox
-       $('input[name="selling_reason"]').val($('.selling-reason:checked').parent().text().trim());
+       $('input[name="selling_reason"]').val($('label .selling-reason:has(input:checked)').text().trim());
        console.log('selling_reason value set to: ' + $('input[name="selling_reason"]').val());
      } else {
        $(this).val('no');
        // Update selling_reason if necessary
        if ($('input[name="selling_reason"]').val() === $(this).parent().text().trim()) {
-         $('input[name="selling_reason"]').val($('.selling-reason:checked').parent().text().trim());
+         $('input[name="selling_reason"]').val('');
        }
        console.log('selling_reason value set to: ' + $('input[name="selling_reason"]').val());
      }
