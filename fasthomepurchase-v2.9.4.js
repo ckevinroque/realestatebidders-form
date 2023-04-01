@@ -81,43 +81,6 @@
           return isValid;
       }, "Invalid email address");
 
-//        var validatePhoneDebounced = _.debounce(function(value) {
-//        // Call the phone number validation API using AJAX
-//           $.ajax({
-//               url: 'https://api.phone-validator.net/api/v2/verify',
-//               type: 'POST',
-//               data: { PhoneNumber: value, CountryCode: 'us', Locale: 'en-US', APIKey: 'pv-ba9cb9c6e2ea30a44bcbb2547f89daeb'},
-//               dataType: 'json',
-//               async: false, // set async to false to wait for response
-//               success: function (json) {
-//                   // check API result
-//                   if (typeof(json.status) != "undefined") {
-//                       statuscode = json.status;
-//                       switch (statuscode) {
-//                           case "VALID_CONFIRMED":
-//                           case "VALID_UNCONFIRMED":
-//                               isValid = true;
-//                               break;
-//                           case "INVALID":
-//                               isValid = false;
-//                               break;
-//                           default:
-//                               isValid = false;
-//                       }
-//                   }
-
-//               }
-//           });
-//       }, 500);
-  
-
-//       $.validator.addMethod("phoneValidation", function(value, element) {
-//           var isValid = false;
-//           validatePhoneDebounced(value);
-//           // return the value of isValid here, since the AJAX call is async and we don't know the result yet
-//           return isValid;
-//       }, "Invalid phone number");
-
       // Define a custom validation method for phone number validation
       $.validator.addMethod("phoneValidation", function(value, element) {
           var isValid = false;
@@ -286,17 +249,17 @@
         // Add comma-separated string to form data
         formData.push({ name: "reason_to_sell", value: optionsString });
          console.log(formData);
-        $.ajax({
-          url: 'https://realestatebidders.leadspediatrack.com/post.do',
-          type: 'POST',
-          data: formData,
-          success: function () {
-            document.location.href = '/thank-you';
-          },
-          error: function () {
-            document.location.href = '/thank-you';
-          },
-        });
+//         $.ajax({
+//           url: 'https://realestatebidders.leadspediatrack.com/post.do',
+//           type: 'POST',
+//           data: formData,
+//           success: function () {
+//             document.location.href = '/thank-you';
+//           },
+//           error: function () {
+//             document.location.href = '/thank-you';
+//           },
+//         });
       }
     }));
 
