@@ -3,10 +3,6 @@
 
      $('input[name="phone_home"]').mask('(000) 000-0000');
 
-      $(".selling-reason").rules("add", {
-          sellingReasons: true
-      });
-
       $.validator.addMethod("valid_property_type", function(value, element) {
           return this.optional(element) || value !== "Mobile Home";
       }, "Sorry, we do not accept mobile homes at this time.");   
@@ -22,7 +18,6 @@
 
       $.validator.addMethod('sellingReasons', function(value, element) {
        console.log('sellingReasons called');
-  console.log($('input.selling-reason:checked').length > 0);
         return $('.selling-reason:checked').length > 0;
       }, 'Please select at least one selling reason.');
 
@@ -280,7 +275,9 @@
       
       $('input[name="phone_home"]').mask('(000) 000-0000');
 
-     
+      $(".selling-reason").rules("add", {
+          sellingReasons: true
+      });
       
       function validating_start(){
           $('label.error:visible').hide();
