@@ -17,6 +17,8 @@
       }, "Please enter specific valid address.");
 
       $.validator.addMethod('sellingReasons', function(value, element) {
+       console.log('sellingReasons called');
+  console.log($('input.selling-reason:checked').length > 0);
         return $('.selling-reason:checked').length > 0;
       }, 'Please select at least one selling reason.');
   
@@ -360,14 +362,20 @@
          }
       }
 
+   $('.selling-reason').on('change', function() {
+     if ($(this).is(':checked')) {
+       $(this).val('yes');
+       // Set selling_reason to the text of the label for the first checked checkbox
+       $('input[name="selling_reason"]').val($('label .selling-reason:has(input:checked)').text().trim());
+       console.log('selling_reason value set to: ' + $('input[name="selling_reason"]').val());
+     } else {
+       $(this).val('no');
+       // Update selling_reason if necessary
+       if ($('input[name="selling_reason"]').val() === $(this).parent().text().trim()) {
+         $('input[name="selling_reason"]').val($('label .selling-reason:has(input:checked)').text().trim());
+       }
+       console.log('selling_reason value set to: ' + $('input[name="selling_reason"]').val());
+     }
+   });
 
-    $('.selling-reason').on('change', function() {
-      var checked = $('input.selling-reason:checked');
-      if (checked.length > 0) {
-        var sellingReason = checked.first().closest('label').text().trim();
-        $('input[name="selling_reason"]').val(sellingReason);
-      } else {
-        $('input[name="selling_reason"]').val('');
-      }
-    });
    
