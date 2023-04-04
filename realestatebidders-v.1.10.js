@@ -214,11 +214,6 @@
           type: 'POST',
           data: $('#lp_form').serialize(),
           success: function () {
-           
-          
-            window.mtagq = window.mtagq || [];
-            window.mtagq.push("event", "submit_lead_form", {"revenue_value":"20","currency":"USD"});
-
             document.location.href = '/thank-you/?'+params_query;
           },
           error: function () {
