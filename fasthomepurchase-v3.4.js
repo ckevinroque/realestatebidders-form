@@ -340,8 +340,58 @@
       console.log('selling_reason value set to: ' + $('input[name="selling_reason"]').val());
     }
     
+    var selectedLabels = [];
+    // loop through all the checked checkboxes
+    $('.selling-reason:checked').each(function() {
+      // add the label text wrapped in quotation marks to the selectedLabels array
+      selectedLabels.push('"'+$(this).parent().text().trim()+'"');
+    });
+    // join the selectedLabels array into a comma-separated string
+    var selectedReasons = selectedLabels.join(', ');
+    // set the value of the hidden field to the selectedReasons string
+    $('input[name="multiple_selling_reason"]').val(selectedReasons);
+    
     $("#lp_form").valid();
+    
    });
 
+ function initiate_prepop(){
 
+   var urlParams = new URLSearchParams(window.location.search);
+ 
+   var requestId = urlParams.get('request_id');
+   if (requestId) {
+     $('#lp_request_id').val(requestId);
+   }
+
+   var first_name = urlParams.get('first_name');
+   if(first_name){
+     $('input[name="first_name"]').val(first_name);
+   }
+
+   var last_name = urlParams.get('last_name');
+   if(last_name){
+     $('input[name="last_name"]').val(last_name);
+   }
+
+   var email_address = urlParams.get('email_address');
+   if(email_address){
+     $('input[name="email_address"]').val(email_address);
+   }
+
+   var phone_home = urlParams.get('phone_home');
+   if(phone_home){
+     $('input[name="phone_home"]').val(phone_home);
+   }
+
+   var zip_code = urlParams.get('zip_code');
+   if(zip_code){
+     $('input[name="zip_code"]').val(zip_code);
+   }
+  
+   var address = urlParams.get('address');
+   if(address){
+     $('input[name="address"]').val(address);
+   }
+}
    
