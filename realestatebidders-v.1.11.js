@@ -215,6 +215,7 @@
           data: $('#lp_form').serialize(),
           success: function () {
             document.location.href = '/thank-you/?'+params_query;
+            uet_report_conversion();
           },
           error: function () {
             document.location.href = '/thank-you/?'+params_query;
