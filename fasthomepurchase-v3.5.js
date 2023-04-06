@@ -389,9 +389,9 @@
      $('input[name="zip_code"]').val(zip_code);
    }
   
-   var address = urlParams.get('address');
-   if(address){
-     $('input[name="address"]').val(address);
-   }
+//    var address = urlParams.get('address');
+//    if(address){
+//      $('input[name="address"]').val(address);
+//    }
 }
    
