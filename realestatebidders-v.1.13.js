@@ -345,10 +345,10 @@
      $('input[name="email_address"]').val(email_address);
    }
 
-   var phone_home = urlParams.get('phone_home');
-   if(phone_home){
-     $('input[name="phone_home"]').val(phone_home);
-   }
+//    var phone_home = urlParams.get('phone_home');
+//    if(phone_home){
+//      $('input[name="phone_home"]').val(phone_home);
+//    }
 
    var zip_code = urlParams.get('zip_code');
    if(zip_code){
