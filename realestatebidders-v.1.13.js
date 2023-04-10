@@ -244,7 +244,7 @@
 
 
       function progress_bar(status){
-        var step = 12.5;
+        var step = 12;
         var current_width = parseFloat($("#progress-status")[0].style.width);
         var step_number = parseFloat($("#current-step-label").text());
         var total_width = 0;
