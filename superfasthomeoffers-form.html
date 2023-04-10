@@ -8,9 +8,9 @@
                   </div>
                   <div class="form-block w-block">
                     
-                      <label for="progress-status"><span id="current-step-label">1</span> out of 7</label>
+                      <label for="progress-status"><span id="current-step-label">1</span> out of 8</label>
                       <div class="progress-container">
-                        <div id="progress-status" style="width:14%"><span id="progress-percent">14%</span></div>
+                        <div id="progress-status" style="width:1%"><span id="progress-percent">1%</span></div>
                       </div>
                     <form class="rows-2" id="lp_form" method="POST" action="">
                       <input type="hidden" name="trusted_form_cert_id" id="xxTrustedFormCertUrl_0"
@@ -33,7 +33,29 @@
                       <input type="hidden" name="zip_code" id="zip_code" required="">
 
 
-                      <div class="steps active" data-step="1">
+                     <div class="steps active" data-step="1">
+                        <div class="w-layout-grid columns-7">
+                          <div>
+                            <label for="property_seller">I am:</label>
+                            <div class="select-wrapper-2">
+                              <select name="property_seller" class="select w-select" required="">
+                                <option value="The Homeowner">The Homeowner</option>
+                                <option value="A Wholesaler">A Wholesaler</option>
+                               <option value="An Agent">An Agent</option>
+                                <option value="A Renter">A Renter</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="button-wrapper">
+                          <div class="prev-btn-wrapper"></div>
+                          <div class="next-btn-wrapper">
+                            <button  type="button" class="next-prev-btn w-button next-step" data-next-step="2">Next</button>
+                          </div>
+                        </div>
+                      </div>
+                     
+                      <<div class="steps" data-step="2">
                         <div class="w-layout-grid columns-7">
                           <div>
                             <label for="address">Property Address</label>
@@ -44,26 +66,30 @@
                         </div>
 
                         <div class="button-wrapper">
-                          <div class="prev-btn-wrapper"></div>
+                          <div class="prev-btn-wrapper">
+                            <button  type="button" class="next-prev-btn w-button previous-step" data-previous-step="1">Previous</button>
+                          </div>
                           <div class="next-btn-wrapper">
-
-                            <button  type="button" class="next-prev-btn w-button next-step" data-next-step="2">Next</button>
+                            <button  type="button" class="next-prev-btn w-button next-step" data-next-step="3">Next</button>
                           </div>
                         </div>
-
                       </div>
 
-                      <div class="steps" data-step="2">
+
+                      <div class="steps" data-step="3">
                         <div class="w-layout-grid columns-7">
                           <div>
                             <label for="property_type">Property Type</label>
                             <div class="select-wrapper-2">
                               <select name="property_type" class="select w-select" required="">
+                                <option value=""> SELECT </option>
                                 <option value="Single Family">Single Family (Owner-Occupied)</option>
-                                <option value="Condo/Town Home">Condo/Townhome</option>
-                                <option value="Mobile Home">Mobile Home</option>
                                 <option value="Single Tenant">Single Family (Tenant-Occupied)</option>
                                 <option value="Single Vacant">Single Family (Vacant)</option>
+                                <option value="Condo/Town Home">Condo/Townhome</option>
+                                <option value="Mobile Home">Mobile Home</option>
+                                <option value="Multi-family/Commercial">Multi-family/Commercial</option>
+                                <option value="Vacant Land">Vacant Land</option>
                               </select>
                             </div>
                           </div>
@@ -71,18 +97,18 @@
 
                         <div class="button-wrapper">
                           <div class="prev-btn-wrapper">
-                            <button  type="button" class="next-prev-btn w-button previous-step"
-                              data-previous-step="1">Previous</button>
+                            <button  type="button" class="next-prev-btn w-button previous-step" data-previous-step="2">Previous</button>
                           </div>
                           <div class="next-btn-wrapper">
 
-                            <button  type="button" class="next-prev-btn w-button next-step" data-next-step="3">Next</button>
+                            <button  type="button" class="next-prev-btn w-button next-step" data-next-step="4">Next</button>
                           </div>
                         </div>
 
                       </div>
+                   
 
-                      <div class="steps" data-step="3">
+                      <div class="steps" data-step="4">
                         <div class="w-layout-grid columns-7">
                           <div>
                             <label for="selling_timeframe">Selling Timeframe</label>
@@ -100,22 +126,22 @@
 
                         <div class="button-wrapper">
                           <div class="prev-btn-wrapper">
-                            <button  type="button" class="next-prev-btn w-button previous-step" data-previous-step="2">Previous</button>
+                            <button  type="button" class="next-prev-btn w-button previous-step" data-previous-step="3">Previous</button>
                           </div>
                           <div class="next-btn-wrapper">
 
-                            <button  type="button" class="next-prev-btn w-button next-step" data-next-step="4">Next</button>
+                            <button  type="button" class="next-prev-btn w-button next-step" data-next-step="5">Next</button>
                           </div>
                         </div>
                       </div>
 
-                      <div class="steps" data-step="4">
+                      <div class="steps" data-step="5">
                         <div class="w-layout-grid columns-7">
                           <div>
                             <label for="property_listed">Is this property listed with an agent?</label>
                             <div class="select-wrapper-2">
                               <select name="property_listed" class="select w-select" required="">
-                                <!-- <option value="">- SELECT -</option> -->
+                                <option value=""> SELECT </option>
                                 <option value="No">No</option>
                                 <option value="Yes">Yes</option>
                               </select>
@@ -126,17 +152,17 @@
                         <div class="button-wrapper">
                           <div class="prev-btn-wrapper">
                             <button  type="button" class="next-prev-btn w-button previous-step"
-                              data-previous-step="3">Previous</button>
+                              data-previous-step="4">Previous</button>
                           </div>
                           <div class="next-btn-wrapper">
 
-                            <button  type="button" class="next-prev-btn w-button next-step" data-next-step="5">Next</button>
+                            <button  type="button" class="next-prev-btn w-button next-step" data-next-step="6">Next</button>
                           </div>
                         </div>
 
                       </div>
 
-                      <div class="steps" data-step="5">
+                      <div class="steps" data-step="6">
                         <div class="w-layout-grid columns-7">
                           <div>
                             <label for="email_address">Email</label>
@@ -149,16 +175,16 @@
                         <div class="button-wrapper">
                           <div class="prev-btn-wrapper">
                             <button  type="button" class="next-prev-btn w-button previous-step"
-                              data-previous-step="4">Previous</button>
+                              data-previous-step="5">Previous</button>
                           </div>
                           <div class="next-btn-wrapper">
 
-                            <button  type="button" class="next-prev-btn w-button next-step" data-next-step="6" data-name="email_address">Next</button>
+                            <button  type="button" class="next-prev-btn w-button next-step" data-next-step="7" data-name="email_address">Next</button>
                           </div>
                         </div>
                       </div>
 
-                      <div class="steps" data-step="6">
+                      <div class="steps" data-step="7">
                         <div class="w-layout-grid columns-7">
                           <div>
                             <label for="phone_home">Phone Number</label>
@@ -170,19 +196,16 @@
 
                         <div class="button-wrapper">
                           <div class="prev-btn-wrapper">
-                            <button  type="button" class="next-prev-btn w-button previous-step"
-                              data-previous-step="5">Previous</button>
+                            <button  type="button" class="next-prev-btn w-button previous-step" data-previous-step="6">Previous</button>
                           </div>
                           <div class="next-btn-wrapper">
-
-                            <button  type="button" class="next-prev-btn w-button next-step" data-next-step="7" data-name="phone_home">Next</button>
+                            <button  type="button" class="next-prev-btn w-button next-step" data-next-step="8" data-name="phone_home">Next</button>
                           </div>
                         </div>
-
                       </div>
 
 
-                      <div class="steps" data-step="7">
+                      <div class="steps" data-step="8">
                         <div class="w-layout-grid columns-7">
                           <div>
                             <label for="">First Name</label>
