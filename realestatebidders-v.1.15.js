@@ -2,13 +2,13 @@
  //validation
      $('input[name="phone_home"]').mask('(000) 000-0000');
 
-      $.validator.addMethod("valid_property_type", function(value, element) {
-          return this.optional(element) || value !== "Mobile Home";
-      }, "Sorry, we do not accept mobile homes at this time.");   
+//       $.validator.addMethod("valid_property_type", function(value, element) {
+//           return this.optional(element) || value !== "Mobile Home";
+//       }, "Sorry, we do not accept mobile homes at this time.");   
   
-      $.validator.addMethod("valid_property_listed", function(value, element) {
-          return this.optional(element) || value !== "Yes";
-      }, "Sorry, we do not accept homes that are listed at this time.");
+//       $.validator.addMethod("valid_property_listed", function(value, element) {
+//           return this.optional(element) || value !== "Yes";
+//       }, "Sorry, we do not accept homes that are listed at this time.");
   
       $.validator.addMethod("incomplete_address", function(value, element) {
         var zipCode = $('input[name="zip_code"]').val();
