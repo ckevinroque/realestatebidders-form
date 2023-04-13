@@ -194,15 +194,39 @@
         $(this).css('background-color', 'gray');
         $('input[name="phone_home"]').mask('0000000000');
         gtag_report_conversion();
+        
+        var params = {
+          ZipCode: $('[name=zip_code]').val(),
+          State: $('[name=state]').val(),
+          creditscore: 'Good',
+          loanbalance: '150000',
+          propertyvalue: '250000',
+          MediaChannel: '',
+          MilitaryStatus: '',
+          EmploymentStatus: '',
+          firsttimebuyer: 'Yes',
+          SourceID: '118',
+          ExtClickID: $('[name=lp_campaign_id]').val(),
+          FName: $('[name=first_name]').val(),
+          LName: $('[name=last_name]').val(),
+          Email: $('[name=email_address]').val(),
+          Phone: $('[name=phone_home]').val(),
+          Address : $('[name=address]').val(),
+          City: $('[name=city]').val(),
+          Rendermode: 1
+        }
+
+        var params_query = $.param(params);
+        
         $.ajax({
           url: 'https://realestatebidders.leadspediatrack.com/post.do',
           type: 'POST',
           data: $('#lp_form').serialize(),
           success: function () {
-            document.location.href = '/thank-you';
+            document.location.href = '/thank-you/?'+params_query;
           },
           error: function () {
-            document.location.href = '/thank-you';
+            document.location.href = '/thank-you/?'+params_query;
           },
         });
       }
