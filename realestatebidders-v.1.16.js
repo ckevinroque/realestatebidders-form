@@ -148,8 +148,11 @@
         //get the id of the clicked element
         var next_step = $(this).attr('data-next-step');
         var data_name = $(this).attr('data-name');
+     
+        var hj_step = $(this).attr('data-current-step');
+     
         console.log(next_step);
-         console.log(data_name);
+        console.log(data_name);
         if(data_name == "email_address"){
         	validate_email(next_step);
         }else if(data_name == "phone_home"){
@@ -163,6 +166,11 @@
            });
         	}
         }
+       
+       if(hj_step){
+         hj('event', hj_step);
+       }
+     
     });
       
       
@@ -185,6 +193,8 @@
         $(this).css('background-color', 'gray');
         $('input[name="phone_home"]').mask('0000000000');
         gtag_report_conversion();
+        
+        hj('event', 'last_step');
         
         var params = {
           ZipCode: $('[name=zip_code]').val(),
