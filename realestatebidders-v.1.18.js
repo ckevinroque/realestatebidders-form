@@ -296,6 +296,9 @@
          validating_start();
         
          if($("#lp_form").valid()){
+          
+           hj('event', 'email_address');
+          
            setTimeout(function() { 
               validating_end();
               $(".steps:visible").hide();
@@ -316,6 +319,9 @@
        $('label.error:visible').hide();
          validating_start();
          if($("#lp_form").valid()){
+          
+          hj('event', 'phone_home');
+          
           setTimeout(function() { 
             validating_end();
             $(".steps:visible").hide();
