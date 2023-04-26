@@ -160,17 +160,17 @@
         }else{
         		//validate all inputs
         	if($("#lp_form").valid()){
+            
+            if(hj_step){
+              hj('event', hj_step);
+            }
+
             $(".steps:visible").hide();
             $("[data-step="+next_step+"]").show('slide', { direction: 'right' }, 300, function(){
               progress_bar('add');
            });
         	}
         }
-       
-       if(hj_step){
-         hj('event', hj_step);
-       }
-     
     });
       
       
