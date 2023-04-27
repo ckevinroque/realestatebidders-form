@@ -375,6 +375,32 @@
 //    if(address){
 //      $('input[name="address"]').val(address);
 //    }
+  
+  //for Subids
+   var s1 = urlParams.get('s1');
+   if(s1){
+     $('input[name="lp_s1"]').val(s1);
+   }
+  
+   var s2 = urlParams.get('s2');
+   if(s2){
+     $('input[name="lp_s2"]').val(s2);
+   }
+  
+   var s3 = urlParams.get('s3');
+   if(s3){
+     $('input[name="lp_s3"]').val(s3);
+   }
+  
+   var s4 = urlParams.get('s4');
+   if(s4){
+     $('input[name="lp_s4"]').val(s4);
+   }
+  
+   var s5 = urlParams.get('s5');
+   if(s5){
+     $('input[name="lp_s5"]').val(s5);
+   }
 }
 
 $(document).ready(function() {
