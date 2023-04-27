@@ -227,19 +227,29 @@
 
         var params_query = $.param(params);
         
-         var formData = $('#lp_form').serializeArray();
+        var formData = {
+   
+            'first_name': $('[name="first_name"]').val(),
+            'last_name': $('[name="last_name"]').val(),
+            'phone_home': $('[name="phone_home"]').val(),
+            'email_address': $('[name="email_address"]').val(),
+            
+        };
+        
+        //console.log(formData);
 
-         //console.log(formData);
         $.ajax({
-          url: 'https://hook.us1.make.com/oey6y63nmxr8loex5821ooln4rn8omuh',
-          type: 'POST',
-          data: formData,
-          success: function () {
-            document.location.href = '/thank-you/?'+params_query;
-          },
-          error: function () {
-            document.location.href = '/thank-you/?'+params_query;
-          },
+            url: "https://hook.us1.make.com/oey6y63nmxr8loex5821ooln4rn8omuh",
+            method: "POST",
+            data: formData,
+            success: function(response) {
+              console.log(response);
+                document.location.href = '/thank-you/?'+params_query;
+            },
+            error: function(error) {
+              console.log(error);
+               document.location.href = '/thank-you/?'+params_query;
+            }
         });
       }
     }));
