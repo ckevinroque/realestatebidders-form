@@ -196,7 +196,12 @@
     
     //submit form
     $(document).on('click', '#submit', (function(event){
+     
       event.preventDefault();
+     
+      $(this).text("Validating...");
+      $(this).prop('disabled', true);
+     
        if($("#lp_form").valid()){
         $(this).text("Submitting... Please wait...");
         $(this).prop('disabled', true);
@@ -233,10 +238,7 @@
             'last_name': $('[name="last_name"]').val(),
             'phone_home': $('[name="phone_home"]').val(),
             'email_address': $('[name="email_address"]').val(),
-            'trusted_form_cert_id': $('[name="trusted_form_cert_id"]').val(),
-         
-         
-            
+            'trusted_form_cert_id': $('[name="trusted_form_cert_id"]').val(),           
         };
         
         //console.log(formData);
@@ -254,6 +256,9 @@
                document.location.href = '/thank-you/?'+params_query;
             }
         });
+      }else{
+        $(this).text("Submit");
+        $(this).prop('disabled', false);
       }
     }));
 
