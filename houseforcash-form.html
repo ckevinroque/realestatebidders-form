@@ -9,7 +9,9 @@
                       </div>
                     <form class="rows-2" id="lp_form" method="POST" action="">
                      
-
+                      <input type="hidden" name="city" id="city" required="">
+                      <input type="hidden" name="state" id="state" required="">
+                     
                       <div class="steps active" data-step="1">
 
                         <div class="w-layout-grid columns-7">
@@ -49,17 +51,25 @@
                               </div>
                             </div>
                           </div>
+                       
+                        <div>&nbsp;</div>
+                       
+                       <div class="w-layout-grid columns-7">
+                          <div>
+                            <label for="address">Property Address</label>
+                            <div class="w-embed">
+                              <input class="field" name="address" autocomplete="off" id="address" required="">
+                            </div>
+                          </div>
+                        </div>
 
                         <div>&nbsp;</div>
 
-                        <div class="small-text-2 muted gray" id="tcpa_consent_text">By clicking SUBMIT you authorize our
-                          partners to call you (including through automated means; e.g. auto-dialing, text and
-                          pre-recorded messaging) via telephone, mobile device (including SMS and MMS) and/or email, at
-                          the number you entered above, with products or services, even if your phone number is on any
-                          national or state Do Not Call list and you agree to our Terms of Use and Privacy Policy.
-                          Message and data rates may apply. Your consent here is not based on a condition of purchase.
+                        <div class="small-text-2 muted gray" id="tcpa_consent_text">By clicking the “SUBMIT” button, I agree to the <a href="https://www.houseforcash.org/terms-and-conditions" target="_blank">Terms of Service</a> and <a href="https://www.houseforcash.org/privacy-policy" target="_blank">Privacy Policy</a> and authorize HouseForCash.org and their partners to contact me by telephone calls, emails, artificial voice, and pre-recorded/text messages, using an automated telephone technology, at the number you entered above, with offers about their products or services, even if my number is a mobile number or is currently listed on any state, federal or corporate Do Not Call list. You may revoke your consent at any time. Message and data rates may apply. Your consent here is not based on a condition of purchase. <a href="https://www.houseforcash.org/ccpa" target="_blank">California Notice</a>.
                         </div>
 
+                        <input type="hidden" name="tcpa_consent_text" value="By clicking the “SUBMIT” button, I agree to the Terms of Service and Privacy Policy and authorize HouseForCash.org and their partners to contact me by telephone calls, emails, artificial voice, and pre-recorded/text messages, using an automated telephone technology, at the number you entered above, with offers about their products or services, even if my number is a mobile number or is currently listed on any state, federal or corporate Do Not Call list. You may revoke your consent at any time. Message and data rates may apply. Your consent here is not based on a condition of purchase. California Notice.">
+                       
                         <label class="w-checkbox selectable-field" style="cursor: pointer;">
                           <div class="w-checkbox-input w-checkbox-input--inputType-custom checkbox-2" style="pointer-events: none;"></div>
                           <input type="checkbox" name="tcpa_consent_text" data-name="TCPA Agreement" required="" style="opacity:0;position:absolute;z-index:-1; pointer-events:none;"><span
