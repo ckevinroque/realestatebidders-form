@@ -238,7 +238,7 @@
             'last_name': $('[name="last_name"]').val(),
             'phone_home': $('[name="phone_home"]').val(),
             'email_address': $('[name="email_address"]').val(),
-            'trusted_form_cert_id': $('[name="trusted_form_cert_id"]').val(),           
+            'trusted_form_cert_id': $('[name="trusted_form_cert_id"]').val(), 
         };
         
         //console.log(formData);
@@ -249,6 +249,18 @@
             data: formData,
             success: function(response) {
               console.log(response);
+            },
+            error: function(error) {
+              console.log(error);
+            }
+        });
+        
+         $.ajax({
+            url: "https://realestatebidders.leadspediatrack.com/post.do",
+            method: "POST",
+            data: $('#lp_form').serialize(),
+            success: function(response) {
+              console.log(response);
                 document.location.href = '/thank-you/?'+params_query;
             },
             error: function(error) {
@@ -256,6 +268,8 @@
                document.location.href = '/thank-you/?'+params_query;
             }
         });
+        
+        
       }else{
         $(this).text("Submit");
         $(this).prop('disabled', false);
