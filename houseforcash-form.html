@@ -74,24 +74,24 @@
                           <div>
                             <label for="address">Is this property listed with an agent?</label>
                             <div class="w-embed">
-                              <div>
-                                 <label for="property_listed_yes">Yes</label>
-                                 <div class="w-embed">
-                                   <input type="radio" class="field" name="property_listed" required="" value="Yes">
-                                 </div>
-                               </div>
-                             
-                               <div>
-                                 <label for="property_listed_no">No</label>
-                                 <div class="w-embed">
-                                   <input type="radio" class="field" name="property_listed" required="" value="No">
-                                 </div>
-                                </div>
-                             
+                              <div class="g-radio-wrap">
+                               
+                               <label class="radio w-radio">
+                                  <div class="w-form-formradioinput w-form-formradioinput--inputType-custom radio_button w-radio-input"></div>
+                                  <input type="radio" data-name="property_listed" id="property_listed_yes" name="property_listed" value="Yes" style="opacity:0;position:absolute;z-index:-1">
+                                  <span class="radio-button-label w-form-label" for="property_listed_yes">Yes</span>
+                              </label>
+                               
+                              <label class="radio w-radio">
+                                  <div class="w-form-formradioinput w-form-formradioinput--inputType-custom radio_button w-radio-input"></div>
+                                  <input type="radio" data-name="property_listed" id="property_listed_no" name="property_listed" value="No" style="opacity:0;position:absolute;z-index:-1">
+                                  <span class="radio-button-label w-form-label" for="property_listed_no">No</span>
+                              </label>
                              
                             </div>
                           </div>
                         </div>
+                       </div>
 
                         <div class="spacer">&nbsp;</div>
 
